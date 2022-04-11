@@ -1,0 +1,1 @@
+web: dotnet exec ./dotnet2.dll --urls http://0.0.0.0:5000/
