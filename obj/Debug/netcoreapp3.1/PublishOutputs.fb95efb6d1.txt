@@ -1,0 +1,7 @@
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\DotnetWEB_API.exe
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\appsettings.Development.json
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\appsettings.json
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\DotnetWEB_API.dll
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\DotnetWEB_API.deps.json
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\DotnetWEB_API.runtimeconfig.json
+C:\Project2Core\DotnetWEB_API\bin\Debug\netcoreapp3.1\publish\DotnetWEB_API.pdb
