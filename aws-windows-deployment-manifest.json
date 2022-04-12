@@ -1,0 +1,14 @@
+{
+    "manifestVersion": 1,
+    "deployments": {
+        "aspNetCoreWeb": [{
+                "name": "AWS",
+                "parameters": {
+                    "appBundle": ".",
+                    "iisPath": "/",
+                    "iisWebSite": "Default Web Site"
+                }
+            }
+        ]
+    }
+}
