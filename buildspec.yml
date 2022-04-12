@@ -34,21 +34,21 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build -c Release $env:PROJECT.csproj /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
+      - dotnet build -c Release
 #       - dotnet test -c Release --logger trx --results-directory ./testresults
       
   post_build:
     commands:
      - echo Publish started on `date
 #      - dotnet publish -c Release
-     - dotnet publish -c Release -o C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\
-#       - dotnet publish -c Release  -r linux-x64 -o ./build_output 
-#       - cp Procfile ./build_output
+      - dotnet publish -c Release  -r linux-x64 -o ./build_output 
+      - cp /p:OutDir=C:\codebuild\artifacts\ ./build_output
 
 artifacts:
   files:
     - '**/*'
-  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
+  base-directory: /p:OutDir=C:\codebuild\artifacts\
+#   base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
   discard-paths: no
 
 # reports:
