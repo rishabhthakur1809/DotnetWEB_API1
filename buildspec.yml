@@ -41,13 +41,13 @@ phases:
     commands:
      - echo Publish started on `date
 #      - dotnet publish -c Release
-     - dotnet publish -c Release  -r linux-x64 -o ./build_output 
+     - dotnet publish -c Release -o ./build_output 
      - cp Procfile ./build_output
 
 artifacts:
   files:
     - '**/*'
-#   base-directory: ./build_output
+  base-directory: ./build_output
   discard-paths: no
 
 # reports:
