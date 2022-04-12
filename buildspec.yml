@@ -1,55 +1,55 @@
 version: 0.2
 
-# env:
-#   variables:
-#     PROJECT: DotnetWEB_API
-#     DOTNET_FRAMEWORK: 4.6.1
-# phases:
-#   build:
-#     commands:
-#       - nuget restore
-#       - msbuild $env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
-# artifacts:
-#   files:
-#     - '**/*'
-#   base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
-   
-   
-
 env:
-   variables:
-     PROJECT: DotnetWEB_API
-     DOTNET_CORE_RUNTIME: 3.1
-
-phases:   
-  install:
-    runtime-versions:
-      dotnet: ${DOTNET_CORE_RUNTIME}
-      
-  pre_build:
-    commands:
-      - echo Restore started on `date`
-      - dotnet restore
-      
+  variables:
+    PROJECT: DotnetWEB_API
+    DOTNET_FRAMEWORK: 4.6.1
+phases:
   build:
     commands:
-      - echo Build started on `date`
-      - dotnet build -c Release
-      - dotnet test -c Release --logger trx --results-directory ./testresults
+      - nuget restore
+      - msbuild $env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
+   
+   
+
+# env:
+#    variables:
+#      PROJECT: DotnetWEB_API
+#      DOTNET_CORE_RUNTIME: 3.1
+
+# phases:   
+#   install:
+#     runtime-versions:
+#       dotnet: ${DOTNET_CORE_RUNTIME}
       
-  post_build:
-    commands:
+#   pre_build:
+#     commands:
+#       - echo Restore started on `date`
+#       - dotnet restore
+      
+#   build:
+#     commands:
+#       - echo Build started on `date`
+#       - dotnet build -c Release
+#       - dotnet test -c Release --logger trx --results-directory ./testresults
+      
+#   post_build:
+#     commands:
       - echo Publish started on `date
       - dotnet publish -c Release
 #       - dotnet publish -c Release -o ./build_output
 #       - dotnet publish -c Release  -r linux-x64 -o ./build_output 
 #       - cp Procfile ./build_output
 
-artifacts:
-  files:
-    - '**/*'
+# artifacts:
+#   files:
+#     - '**/*'
 #   base-directory: ./build_output
-  discard-paths: no
+#   discard-paths: no
 
 # reports:
 #   ${PROJECT}:
